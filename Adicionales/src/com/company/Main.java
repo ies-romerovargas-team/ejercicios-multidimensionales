@@ -53,7 +53,7 @@ public class Main {
                                               {6, 5, 2, 1, 3, 4 ,9, 8, 7}, {8, 9, 4, 6, 7, 5, 9, 3, 1}, {3, 1, 7, 2, 9, 8, 4, 6, 5},
                                               {7, 4, 1, 3, 2, 6, 5, 9, 8}, {2, 3, 5, 8, 4, 9, 7, 1, 6}, {9, 6, 8, 7, 3, 1, 3, 2, 4}};
                          */
-                        escribeArrayBi(ejercicio4);
+                        escribeSudoku(ejercicio4);
                         if(compruebaSudoku(ejercicio4))
                         {
                             System.out.println("Sudoku Correcto ☺");
@@ -92,6 +92,40 @@ public class Main {
                 sc.next();
             }
         }
+    }
+
+    private static void escribeSudoku(int[][] array)
+    {
+        int i, j;
+        System.out.println("  ╔═══╤═══╤═══╦═══╤═══╤═══╦═══╤═══╤═══╗");
+        for(i = 0; i < 9; i++)
+        {
+            System.out.print("  ║");
+            for(j = 0; j < 9; j++)
+            {
+                System.out.print(" " + array[i][j]);
+                if((j + 1)%3==0)
+                {
+                    System.out.print(" ║");
+                }
+                else if (j < 8)
+                {
+                    System.out.print(" │");
+                }
+
+            }
+            System.out.println();
+            //System.out.println("║");
+            if((i + 1)%3==0 && i < 8)
+            {
+                System.out.println("  ╠═══╪═══╪═══╬═══╪═══╪═══╬═══╪═══╪═══╣");
+            }
+            else if (i < 8)
+            {
+                System.out.println("  ╟───┼───┼───╫───┼───┼───╫───┼───┼───╢");
+            }
+        }
+        System.out.println("  ╚═══╧═══╧═══╩═══╧═══╧═══╩═══╧═══╧═══╝");
     }
 
     private static void disparaBarco(int[][] array, String a)
@@ -219,18 +253,18 @@ public class Main {
 
     private static boolean compruebaArray19(int[] array)
     {
-        int i, j;
+        int i;
         // búsqueda de repetidos
         List<Integer> compruebaRepetidos;
         compruebaRepetidos = new ArrayList<>();
         for(i = 0; i < 9; i++) {
             if (compruebaRepetidos.contains(array[i]))
             {
-                return false;
+                return true;
             }
             compruebaRepetidos.add(array[i]);
         }
-        return true;
+        return false;
     }
 
     private static boolean compruebaSudoku(int[][] array)
@@ -246,7 +280,7 @@ public class Main {
             {
                 auxiliar[j] = array[i][j];
             }
-            if(!compruebaArray19(auxiliar))
+            if(compruebaArray19(auxiliar))
             {
                 return false;
             }
@@ -258,7 +292,7 @@ public class Main {
             {
                 auxiliar[j] = array[j][i];
             }
-            if(!compruebaArray19(auxiliar))
+            if(compruebaArray19(auxiliar))
             {
                 return false;
             }
@@ -280,7 +314,7 @@ public class Main {
                 auxiliar[cont++] = array[i + 2][j];
                 auxiliar[cont++] = array[i + 2][j + 1];
                 auxiliar[cont] = array[i + 2][j + 2];
-                if(!compruebaArray19(auxiliar))
+                if(compruebaArray19(auxiliar))
                 {
                     return false;
                 }

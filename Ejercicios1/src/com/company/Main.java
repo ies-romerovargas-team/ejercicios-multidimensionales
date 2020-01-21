@@ -74,11 +74,12 @@ public class Main {
                         ejercicio9_3 = new int[4][4];
                         RellenaAleatorioBi(ejercicio9_1);
                         RellenaAleatorioBi(ejercicio9_2);
-                        RellenaAleatorioBi(ejercicio9_3);
+                        //RellenaAleatorioBi(ejercicio9_3);
                         escribeArrayBi(ejercicio9_1);
                         escribeArrayBi(ejercicio9_2);
+                        suma2ArraysBi(ejercicio9_1, ejercicio9_2, ejercicio9_3);
+                        System.out.println("Suma de matrices: ");
                         escribeArrayBi(ejercicio9_3);
-                        System.out.println("Suma: " + suma2ArraysBi(ejercicio9_1, ejercicio9_2, ejercicio9_3));
                         break;
                     case 10:
                         int[][] ejercicio10_1;
@@ -261,22 +262,19 @@ public class Main {
         }
     }
 
-    private static int suma2ArraysBi(int[][] array1, int[][] array2, int[][] array3)
+    private static void suma2ArraysBi(int[][] array1, int[][] array2, int[][] array3)
     {
-        // Suma los elementos de 3 arrays bidimensionales de idénticas dimensiones
-        int i, j, suma = 0;
+        // Suma de matrices
+        int i, j;
         int numFilas = array1.length;
         int numCols = array1[0].length;
         for(i = 0; i < numFilas; i++)
         {
             for(j = 0; j < numCols; j++)
             {
-                suma += array1[i][j];
-                suma += array2[i][j];
-                suma += array3[i][j];
+                array3[i][j] = array1[i][j] + array2[i][j];
             }
         }
-        return suma;
     }
 
     private static int sumaArrayBi(int[][] array)
