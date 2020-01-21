@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eeb6b27-bbf4-4416-bf79-d8cc0fa74119" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Adicionales/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Adicionales/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Adicionales/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Adicionales/out/production/Adicionales/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Adicionales/out/production/Adicionales/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Adicionales/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Adicionales/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="0eeb6b27-bbf4-4416-bf79-d8cc0fa74119" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

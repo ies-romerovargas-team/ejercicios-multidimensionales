@@ -299,10 +299,10 @@ public class Main {
         }
         //submatrices
         int cont;
-        for(i = 0; i <=6 ; i = i + 3)
+        for(i = 0; i < 9 ; i = i + 3)
         {
             cont = 0;
-            for(j = 0; j <=6; j = j + 3) {
+            for(j = 0; j < 9; j = j + 3) {
                 auxiliar[cont++] = array[i][j];
                 auxiliar[cont++] = array[i][j + 1];
                 auxiliar[cont++] = array[i][j + 2];
