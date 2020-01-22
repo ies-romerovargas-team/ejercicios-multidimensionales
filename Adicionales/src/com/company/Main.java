@@ -67,6 +67,7 @@ public class Main {
                         int[][] ejercicio5 = {{0, 0, 0, 0, 0, 1, 0, 0}, {1, 1, 1, 1, 0, 0, 0, 1}, {0, 0, 0, 0, 0, 0, 0, 1},
                                               {1, 0, 1, 1, 1, 0, 0, 1}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 1, 0, 1, 0},
                                               {1, 1, 0, 0, 1, 0, 1, 0}, {0, 0, 0, 0, 0, 0, 0, 0}};
+                        colocaFlota(ejercicio5);
                         while(quedanBarcos(ejercicio5))
                         {
                             imprimeBarcos(ejercicio5);
@@ -94,38 +95,180 @@ public class Main {
         }
     }
 
-    private static void escribeSudoku(int[][] array)
+    private static void colocaFlota(int[][] array)
     {
-        int i, j;
-        System.out.println("  ╔═══╤═══╤═══╦═══╤═══╤═══╦═══╤═══╤═══╗");
-        for(i = 0; i < 9; i++)
-        {
-            System.out.print("  ║");
-            for(j = 0; j < 9; j++)
-            {
-                System.out.print(" " + array[i][j]);
-                if((j + 1)%3==0)
-                {
-                    System.out.print(" ║");
-                }
-                else if (j < 8)
-                {
-                    System.out.print(" │");
-                }
-
-            }
-            System.out.println();
-            //System.out.println("║");
-            if((i + 1)%3==0 && i < 8)
-            {
-                System.out.println("  ╠═══╪═══╪═══╬═══╪═══╪═══╬═══╪═══╪═══╣");
-            }
-            else if (i < 8)
-            {
-                System.out.println("  ╟───┼───┼───╫───┼───┼───╫───┼───┼───╢");
+        // Todas las casillas a 0
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                array[i][j] = 0;
             }
         }
-        System.out.println("  ╚═══╧═══╧═══╩═══╧═══╧═══╩═══╧═══╧═══╝");
+
+        colocaBarcos(array, 4);
+
+        colocaBarcos(array, 3);
+
+        colocaBarcos(array, 3);
+
+        colocaBarcos(array, 2);
+
+        colocaBarcos(array, 2);
+
+        colocaBarcos(array, 2);
+
+        colocaBarcos(array, 1);
+
+        colocaBarcos(array, 1);
+
+        colocaBarcos(array, 1);
+
+        colocaBarcos(array, 1);
+
+        // elimina las marcas de adyacencia
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length ; j++) {
+                if(array[i][j] == 2) array[i][j] = 0;
+            }
+        }
+    }
+
+    private static void colocaBarcos(int[][] array, int tam)
+    {
+        Random r = new Random();
+        int fil = r.nextInt(8); // VALORES DE 0 A 7
+        int col = r.nextInt(8); // VALORES DE 0 A 7
+        int dir = r.nextInt(4); // VALORES DE 0 A 3
+        while(noCabe(array, fil, col, dir, tam))
+        {
+            fil = r.nextInt(8);
+            col = r.nextInt(8);
+            dir = r.nextInt(3);
+            // TODO
+            // Crear la lógica necesaria para generar una salida en los casos de imposibilidad de colocar un nuevo barco en el tablero
+        }
+        // generar barco y marca con el valor '2' las casillas adyacentes
+        switch (dir)
+        {
+            case 0: // Norte
+                for (int i = tam; i > 0; i--)
+                {
+                    array[fil - i + 1][col] = 1;
+                    if(col > 0 && array[fil - i + 1][col - 1] == 0) array[fil - i + 1][col - 1] = 2;
+                    if(col < 7 && array[fil - i + 1][col + 1] == 0) array[fil - i + 1][col + 1] = 2;
+                }
+                // marcar las casillas adyacentes por arriba para evitar colocar barcos ahí
+                if(fil - tam >= 0) {
+                    if(array[fil - tam][col] == 0) array[fil - tam][col] = 2;
+                    if(col > 0 && array[fil - tam][col - 1] == 0) array[fil - tam][col - 1] = 2;
+                    if(col < 7 && array[fil - tam][col + 1] == 0) array[fil - tam][col + 1] = 2;
+                }
+                // marcar las casillas adyacentes por debajo para evitar colocar barcos ahí
+                if(fil + 1 <= 7) {
+                    if(array[fil + 1][col] == 0) array[fil + 1][col] = 2;
+                    if(col > 0 && array[fil + 1][col - 1] == 0) array[fil + 1][col - 1] = 2;
+                    if(col < 7 && array[fil + 1][col + 1] == 0) array[fil + 1][col + 1] = 2;
+                }
+                break;
+            case 1: // Este
+                for (int i = 0; i < tam; i++)
+                {
+                    array[fil][col + i] = 1;
+                    if(fil > 0 && array[fil - 1][col + i] == 0) array[fil - 1][col + i] = 2;
+                    if(fil < 7 && array[fil + 1][col + i] == 0) array[fil + 1][col + i] = 2;
+                }
+                // marcar las casillas adyacentes por la izquierda para evitar colocar barcos ahí
+                if(col - 1 >= 0) {
+                    if(array[fil][col - 1] == 0) array[fil][col - 1] = 2;
+                    if(fil > 0 && array[fil - 1][col - 1] == 0) array[fil - 1][col - 1] = 2;
+                    if(fil < 7 && array[fil + 1][col - 1] == 0) array[fil + 1][col - 1] = 2;
+                }
+                // marcar las casillas adyacentes por la derecha para evitar colocar barcos ahí
+                if(col + tam <= 7) {
+                    if(array[fil][col + tam] == 0) array[fil][col + tam] = 2;
+                    if(fil > 0 && array[fil - 1][col + tam] == 0) array[fil - 1][col + tam] = 2;
+                    if(fil < 7 && array[fil + 1][col + tam] == 0) array[fil + 1][col + tam] = 2;
+                }
+                break;
+            case 2: // Sur
+                for (int i = 0; i < tam; i++)
+                {
+                    array[fil + i][col] = 1;
+                    if(col > 0 && array[fil + i][col - 1] == 0) array[fil + i][col - 1] = 2;
+                    if(col < 7 && array[fil + i][col + 1] == 0) array[fil + i][col + 1] = 2;
+                }
+                // marcar las casillas adyacentes por arriba para evitar colocar barcos ahí
+                if(fil - 1 >= 0) {
+                    if(array[fil - 1][col] == 0) array[fil - 1][col] = 2;
+                    if(col > 0 && array[fil - 1][col - 1] == 0) array[fil - 1][col - 1] = 2;
+                    if(col < 7 && array[fil - 1][col + 1] == 0) array[fil - 1][col + 1] = 2;
+                }
+                // marcar las casillas adyacentes por debajo para evitar colocar barcos ahí
+                if(fil + tam <= 7) {
+                    if(array[fil + tam][col] == 0) array[fil + tam][col] = 2;
+                    if(col > 0 && array[fil + tam][col - 1] == 0) array[fil + tam][col - 1] = 2;
+                    if(col < 7 && array[fil + tam][col + 1] == 0) array[fil + tam][col + 1] = 2;
+                }
+                break;
+            case 3: // West
+                for (int i = tam; i > 0; i--)
+                {
+                    array[fil][col - i] = 1;
+                    if(fil > 0 && array[fil - 1][col - i] == 0) array[fil - 1][col - i] = 2;
+                    if(fil < 7 && array[fil + 1][col - i] == 0) array[fil + 1][col - i] = 2;
+                }
+                // marcar las casillas adyacentes a la izquierda para evitar colocar barcos ahí
+                if(col - tam >= 0) {
+                    if(array[fil][col - tam - 1] == 0) array[fil][col - tam - 1] = 2;
+                    if(fil > 0 && array[fil - 1][col - tam - 1] == 0) array[fil - 1][col - tam - 1] = 2;
+                    if(fil < 7 && array[fil + 1][col - tam - 1] == 0) array[fil + 1][col - tam - 1] = 2;
+                }
+                // marcar las casillas adyacentes a la derecha para evitar colocar barcos ahí
+                if(col + tam <= 7) {
+                    if(array[fil][col + 1] == 0) array[fil][col + 1] = 2;
+                    if(fil > 0 && array[fil - 1][col + 1] == 0) array[fil - 1][col + 1] = 2;
+                    if(fil < 7 && array[fil + 1][col + 1] == 0) array[fil + 1][col + 1] = 2;
+                }
+                break;
+        }
+    }
+
+    private static boolean noCabe(int[][] array, int fil, int col, int dir, int tam)
+    {
+        if(tam == 1) {
+            return array[fil][col] != 0;
+        }
+        switch (dir)
+        {
+            case 0: // norte
+                if (fil - tam <= 0) return true;
+                for (int i = tam; i > 0; i--)
+                {
+                    if(array[fil - i][col] != 0) return true;
+                }
+                break;
+            case 1: //este
+                if (col + tam > 8) return true;
+                for (int i = 0; i < tam; i++)
+                {
+                    if(array[fil][col + i] != 0) return true;
+                }
+                break;
+            case 2: // sur
+                if(fil + tam > 8) return true;
+                for (int i = 0; i < tam; i++)
+                {
+                    if(array[fil + i][col] != 0) return true;
+                }
+                break;
+            case 3: //west
+                if(col - tam <= 0) return true;
+                for (int i = tam; i > 0; i--)
+                {
+                    if(array[fil][col - i] != 0) return true;
+                }
+                break;
+        }
+        return false;
     }
 
     private static void disparaBarco(int[][] array, String a)
@@ -137,6 +280,7 @@ public class Main {
         String ANSI_GREEN="\u001B[32m";
         String ANSI_RED="\u001B[31m";
         String ANSI_RESET="\u001B[0m";
+        a = a.toUpperCase();
         char columna = a.charAt(0);
         String fila = a.substring(1);
         int col = (int)columna - 65;
@@ -265,6 +409,40 @@ public class Main {
             compruebaRepetidos.add(array[i]);
         }
         return false;
+    }
+
+    private static void escribeSudoku(int[][] array)
+    {
+        int i, j;
+        System.out.println("  ╔═══╤═══╤═══╦═══╤═══╤═══╦═══╤═══╤═══╗");
+        for(i = 0; i < 9; i++)
+        {
+            System.out.print("  ║");
+            for(j = 0; j < 9; j++)
+            {
+                System.out.print(" " + array[i][j]);
+                if((j + 1)%3==0)
+                {
+                    System.out.print(" ║");
+                }
+                else if (j < 8)
+                {
+                    System.out.print(" │");
+                }
+
+            }
+            System.out.println();
+            //System.out.println("║");
+            if((i + 1)%3==0 && i < 8)
+            {
+                System.out.println("  ╠═══╪═══╪═══╬═══╪═══╪═══╬═══╪═══╪═══╣");
+            }
+            else if (i < 8)
+            {
+                System.out.println("  ╟───┼───┼───╫───┼───┼───╫───┼───┼───╢");
+            }
+        }
+        System.out.println("  ╚═══╧═══╧═══╩═══╧═══╧═══╩═══╧═══╧═══╝");
     }
 
     private static boolean compruebaSudoku(int[][] array)

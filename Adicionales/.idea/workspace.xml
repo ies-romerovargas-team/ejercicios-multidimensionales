@@ -4,9 +4,7 @@
     <list default="true" id="88bab790-4132-4e97-8982-a1c8c84841ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ejercicios1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ejercicios1/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,20 +21,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Corrección Examen 2T" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -54,6 +41,18 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -73,7 +72,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -84,22 +85,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579437971149" />
-    <state width="1877" height="417" key="GridCell.Tab.0.bottom" timestamp="1579461363815">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1284" height="104" key="GridCell.Tab.0.bottom" timestamp="1579724194950">
+      <screen x="36" y="0" width="1330" height="768" />
     </state>
     <state width="1877" height="417" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579461363815" />
-    <state width="1877" height="417" key="GridCell.Tab.0.center" timestamp="1579461363815">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1284" height="104" key="GridCell.Tab.0.bottom/36.0.1330.768@36.0.1330.768" timestamp="1579724194950" />
+    <state width="1284" height="104" key="GridCell.Tab.0.center" timestamp="1579724194949">
+      <screen x="36" y="0" width="1330" height="768" />
     </state>
     <state width="1877" height="417" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579461363815" />
-    <state width="1877" height="417" key="GridCell.Tab.0.left" timestamp="1579461363815">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1284" height="104" key="GridCell.Tab.0.center/36.0.1330.768@36.0.1330.768" timestamp="1579724194949" />
+    <state width="1284" height="104" key="GridCell.Tab.0.left" timestamp="1579724194949">
+      <screen x="36" y="0" width="1330" height="768" />
     </state>
     <state width="1877" height="417" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579461363815" />
-    <state width="1877" height="417" key="GridCell.Tab.0.right" timestamp="1579461363815">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1284" height="104" key="GridCell.Tab.0.left/36.0.1330.768@36.0.1330.768" timestamp="1579724194949" />
+    <state width="1284" height="104" key="GridCell.Tab.0.right" timestamp="1579724194949">
+      <screen x="36" y="0" width="1330" height="768" />
     </state>
     <state width="1877" height="417" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579461363815" />
+    <state width="1284" height="104" key="GridCell.Tab.0.right/36.0.1330.768@36.0.1330.768" timestamp="1579724194949" />
     <state width="1877" height="417" key="GridCell.Tab.1.bottom" timestamp="1579461363815">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
